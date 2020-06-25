@@ -1,0 +1,6 @@
+<view class="page-product-group">
+  <block wx:if="{{leave!=null}}">
+    <leave-list  value="{{leave}}"></leave-list>
+  </block>
+</view>
+

@@ -1,0 +1,5 @@
+<wxs src="../../common/tools.wxs" module="tools" />
+<app-week-sourse-list-head-teacher bindcustomevent="onGetCode"></app-week-sourse-list-head-teacher>
+<block wx:if="{{schedule}}">
+    <app-week-sourse-list-teacher value="{{schedule}}"></app-week-sourse-list-teacher>
+</block>

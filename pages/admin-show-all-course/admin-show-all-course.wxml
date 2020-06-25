@@ -1,0 +1,18 @@
+<wxs src="../../common/tools.wxs" module="tools" />
+
+<view class="tit">
+    <view class="tit-border"></view>
+    <view class="course-location">
+        <image src="../../image/location.png"></image>
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{classAddressData}}">
+            <view class="picker">
+                <block wx:if="{{classAddressData==null||classAddressData.length<=0}}">未选择</block>
+                <block wx:else>{{classAddressData[index]}}</block>
+            </view>
+        </picker>
+    </view>
+</view>
+<app-week-sourse-list-head-admin bindcustomevent="getScheduleData"></app-week-sourse-list-head-admin>
+<block wx:if="{{Schedule}}">
+    <app-week-sourse-list-admin value="{{Schedule}}"></app-week-sourse-list-admin>
+</block>

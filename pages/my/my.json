@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "我的",
+  "usingComponents": {
+    "app-authorize": "../../components/app-authorize/app-authorize"
+  }
+}

@@ -1,0 +1,33 @@
+<wxs src="../../common/tools.wxs" module="tools" />
+
+<view class="list" wx:if="{{listData!=null}}">
+
+    <view style="display: flex;height: 160rpx;border-bottom: 1px solid rgb(217,217,217);" class="list-li" wx:for="{{listData}}" wx:key="listData.index">
+
+        <view style="flex-grow:2;width: 0;display: flex;flex-direction: column;justify-content: center;align-items: center;">
+            <!--课程名-->
+            <view style="display: flex;justify-content: center;align-items: center;" class="list-li-sold">
+                Course Name:{{ tools.getCourseName(courseList,item.courseUid)  }}
+            </view>
+
+            <!--上课时间-->
+            <view style="display: flex;align-items: center;justify-content: center;" class="list-li-sold">
+                {{item.fromTimestamp}}~{{item.toTimestamp}} {{ item.haveAClassDate }}
+            </view>
+
+        </view>
+
+        <view style="flex-grow: 1;width: 0;display: flex;flex-direction: column;justify-content: space-around;align-items: center;padding-top: 6px;" class="list-li-sold">
+            <view>
+                <block wx:if="{{tools.getLookup(dictionaries,item.scheduleStatusCode)=='计划'}}">
+                <button style="background-color: rgb(141,197,62);" size="mini" bindtap="onPunchCard" data-scheduleuid="{{item.scheduleUid}}" data-time="{{item.fromTimestamp}}" type="primary" >punch card</button>
+                </block>
+            </view>
+            <view style="position: relative;right: 16px;">
+                <button style="background-color: rgb(141,197,62);" size="mini" data-scheduleuid="{{item.scheduleUid}}" data-time="{{item.fromTimestamp}}" bindtap="onManageDetail" type="primary" >detail</button>
+            </view>
+        </view>
+
+    </view>
+
+</view>

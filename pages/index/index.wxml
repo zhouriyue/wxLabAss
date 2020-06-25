@@ -1,0 +1,41 @@
+<wxs src="../../common/tools.wxs" module="tools"/>
+
+<import src="../../wxParse/wxParse.wxml"/>
+
+<block wx:if="{{appSwiper_0!=null}}">
+    <app-swiper value="{{ appSwiper_0 }}"></app-swiper>
+</block>
+
+<view style="position: relative;width: 100%;height: 160rpx;margin-top: 20rpx;margin-bottom: 20rpx;display: flex;justify-content: space-between;align-items: center;">
+
+    <view bindtap="clickToRedirect" style="width: 100%;height: 100%;display: flex;flex-direction: column;justify-content: center;align-items: center;">
+        <view style="width: 90rpx;height: 90rpx;">
+            <image style="width: 100%;height: 100%;" src="../../image/consulting.png"></image>
+        </view>
+        <view>咨询</view>
+    </view>
+
+    <view bindtap="clickIntroduction" style="width: 100%;height: 100%;display: flex;flex-direction: column;justify-content: center;align-items: center;">
+        <view style="width: 80rpx;height: 80rpx;">
+            <image style="width: 100%;height: 100%;" src="../../image/introduction.png"></image>
+        </view>
+        <view>简介</view>
+    </view>
+
+    <view bindtap="clickAppointment" style="width: 100%;height: 100%;display: flex;flex-direction: column;justify-content: center;align-items: center;">
+        <view style="width: 80rpx;height: 80rpx;">
+            <image style="width: 100%;height: 100%;" src="../../image/appointment-r.png"></image>
+        </view>
+        <view>预约</view>
+    </view>
+
+    <view bindtap="clickCommodity" style="width: 100%;height: 100%;display: flex;flex-direction: column;justify-content: center;align-items: center;">
+        <view style="width: 80rpx;height: 80rpx;">
+            <image style="width: 100%;height: 100%;" src="../../image/goods.png"></image>
+        </view>
+        <view>商品</view>
+    </view>
+
+</view>
+
+<today-schedule></today-schedule>

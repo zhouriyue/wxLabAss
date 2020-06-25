@@ -1,0 +1,4 @@
+<wxs src="../../common/tools.wxs" module="tools" />
+<block wx:if="{{schedule!=null}}">
+    <record-teacher-list value="{{schedule}}"></record-teacher-list>
+</block>

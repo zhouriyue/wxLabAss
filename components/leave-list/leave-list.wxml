@@ -1,0 +1,25 @@
+<wxs src="../../common/tools.wxs" module="tools" />
+
+<view wx:if="{{value!=null}}">
+  <view class="page-product-group" wx:for="{{value}}" wx:for-index="teacherIndex" wx:key="index">
+    <block wx:if="{{item.scheduleStudentObjectList.length>=0}}">
+      <view class="dianshang_gongneng1">
+        <view class="dianshang_gongneng1-item" >
+          <view class="dianshang_gongneng1-item-ziti">老师：{{item.name}} </view>
+        </view>
+      </view>
+      <block wx:for="{{item.scheduleStudentObjectList}}" wx:key="index">
+      <view class="leave-list-student" wx:if="{{item.leaveApplicationComment!=null}}">
+        <view>学生：{{item.name}}</view>
+        请假反馈：{{tools.getLookup(dictionaries,item.scheduleStudentStatusCode)}}
+        <view class="leave-list-student-reason">请假原因：{{item.leaveApplicationComment}}</view>
+        <view class="leave-list-student-btn">
+          <button data-index="{{index}}" data-userstudentuid="{{item.userStudentUid}}" data-teacherindex="{{teacherIndex}}" bindtap="onTure">同意</button>
+          <button data-index="{{index}}" data-userstudentuid="{{item.userStudentUid}}" data-teacherindex="{{teacherIndex}}" bindtap="onFalse">不同意</button>
+        </view>
+      </view>
+      </block>
+    </block>
+  </view>
+</view>
+

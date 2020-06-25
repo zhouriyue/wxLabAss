@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "课堂记录",
+  "usingComponents": {
+    "show-course-list-student": "../../components/show-course-list-student/show-course-list-student"
+
+  }
+}

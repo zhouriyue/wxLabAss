@@ -1,0 +1,14 @@
+<wxs src="../../common/tools.wxs" module="tools" />
+
+<view wx:if="{{userStudentCourseType!=null}}"
+      style="height: auto;padding-top: 20rpx;padding-bottom: 20rpx;margin-top: 20rpx;border-top:1px solid rgb(194,194,194);border-bottom:1px solid rgb(194,194,194);background-color: white;display: flex;flex-direction: column;justify-content: center;align-items: center;">
+    <block wx:for="{{userStudentCourseType}}" wx:key="courseTypeUid">
+            <view class="row">
+                <view>{{ tools.getCourseTypeName(courseTypeList,item.courseTypeUid)  }}课程剩余课时:{{ tools.minuteToHour(item.availableMinutes) }}</view>
+            </view>
+    </block>
+</view>
+
+<block wx:if="{{record!=null}}">
+    <show-course-list-student value="{{record}}"></show-course-list-student>
+</block>

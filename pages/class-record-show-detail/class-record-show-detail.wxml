@@ -1,0 +1,133 @@
+<wxs src="../../common/tools.wxs" module="tools" />
+
+<view class="page-record-detail">
+    <view class="page-record-detail-lf">课堂表现</view>
+
+    <view class="page-record-detail-rg">
+        <view class="page-record-detail-rg-txt">互动程度</view>
+        <view class="page-record-detail-star">
+
+            <image wx:if="{{ cooperationScore && cooperationScore>=1 }}" src="../../image/star_on.png"></image>
+            <image wx:else src="../../image/star.png"></image>
+
+            <image wx:if="{{ cooperationScore && cooperationScore>=2 }}" src="../../image/star_on.png"></image>
+            <image wx:else src="../../image/star.png"></image>
+
+            <image wx:if="{{ cooperationScore && cooperationScore>=3 }}" src="../../image/star_on.png"></image>
+            <image wx:else src="../../image/star.png"></image>
+
+            <image wx:if="{{ cooperationScore && cooperationScore>=4 }}" src="../../image/star_on.png"></image>
+            <image wx:else src="../../image/star.png"></image>
+
+            <image wx:if="{{ cooperationScore && cooperationScore>=5 }}" src="../../image/star_on.png"></image>
+            <image wx:else src="../../image/star.png"></image>
+
+        </view>
+    </view>
+    <view class="page-record-detail-rg">
+        <view class="page-record-detail-rg-txt">注意力</view>
+        <view class="page-record-detail-star">
+
+            <image wx:if="{{ attentionScore && attentionScore>=1 }}" src="../../image/star_on.png"></image>
+            <image wx:else src="../../image/star.png"></image>
+
+            <image wx:if="{{ attentionScore && attentionScore>=2 }}" src="../../image/star_on.png"></image>
+            <image wx:else src="../../image/star.png"></image>
+
+            <image wx:if="{{ attentionScore && attentionScore>=3 }}" src="../../image/star_on.png"></image>
+            <image wx:else src="../../image/star.png"></image>
+
+            <image wx:if="{{ attentionScore && attentionScore>=4 }}" src="../../image/star_on.png"></image>
+            <image wx:else src="../../image/star.png"></image>
+
+            <image wx:if="{{ attentionScore && attentionScore>=5 }}" src="../../image/star_on.png"></image>
+            <image wx:else src="../../image/star.png"></image>
+
+        </view>
+    </view>
+    <view class="page-record-detail-rg">
+        <view class="page-record-detail-rg-txt">行为规范</view>
+        <view class="page-record-detail-star">
+
+            <image wx:if="{{ disciplineScore && disciplineScore>=1 }}" src="../../image/star_on.png"></image>
+            <image wx:else src="../../image/star.png"></image>
+
+            <image wx:if="{{ disciplineScore && disciplineScore>=2 }}" src="../../image/star_on.png"></image>
+            <image wx:else src="../../image/star.png"></image>
+
+            <image wx:if="{{ disciplineScore && disciplineScore>=3 }}" src="../../image/star_on.png"></image>
+            <image wx:else src="../../image/star.png"></image>
+
+            <image wx:if="{{ disciplineScore && disciplineScore>=4 }}" src="../../image/star_on.png"></image>
+            <image wx:else src="../../image/star.png"></image>
+
+            <image wx:if="{{ disciplineScore && disciplineScore>=5 }}" src="../../image/star_on.png"></image>
+            <image wx:else src="../../image/star.png"></image>
+
+        </view>
+    </view>
+    <view class="page-record-detail-rg">
+        <view class="page-record-detail-rg-txt" style="width:170rpx;left:-3rpx;">课堂完成情况</view>
+        <view class="page-record-detail-star">
+
+            <image wx:if="{{ finishWorkScore && finishWorkScore>=1 }}" src="../../image/star_on.png"></image>
+            <image wx:else src="../../image/star.png"></image>
+
+            <image wx:if="{{ finishWorkScore && finishWorkScore>=2 }}" src="../../image/star_on.png"></image>
+            <image wx:else src="../../image/star.png"></image>
+
+            <image wx:if="{{ finishWorkScore && finishWorkScore>=3 }}" src="../../image/star_on.png"></image>
+            <image wx:else src="../../image/star.png"></image>
+
+            <image wx:if="{{ finishWorkScore && finishWorkScore>=4 }}" src="../../image/star_on.png"></image>
+            <image wx:else src="../../image/star.png"></image>
+
+            <image wx:if="{{ finishWorkScore && finishWorkScore>=5 }}" src="../../image/star_on.png"></image>
+            <image wx:else src="../../image/star.png"></image>
+
+        </view>
+    </view>
+</view>
+
+<view class="page-record-detail page-record-detail1">
+    <view class="page-record-detail-lf">家庭作业展示</view>
+
+    <view class="page-record-detail-rg">
+        <view class="page-record-detail-btn"></view>
+    </view>
+</view>
+
+<view wx:if="{{cmsObject!=null}}">
+    <block wx:if="{{cmsObject.cmsImageObjectList!=null && cmsObject.cmsImageObjectList.length>0}}">
+        <view wx:for="{{cmsObject.cmsImageObjectList}}" wx:key="cmsImageUid">
+            <image  src="{{tools.getPicUrl(item.cmsImagePath,null)}}" style="width:100%;" mode="widthFix" />
+        </view>
+    </block>
+    <block wx:if="{{cmsObject.content!=null}}">
+        <view class="homework-detail">{{cmsObject.content}}</view>
+    </block>
+</view>
+<view class="page-record-detail page-record-detail2">
+    <view class="page-record-detail-lf">老师的评价</view>
+    <block wx:if="{{isTeacher}}">
+        <textarea  bindinput="onTextarea1" value="{{comment}}" class="page-record-detail-input"></textarea>
+    </block>
+    <block wx:else>
+        <textarea  bindinput="onTextarea1" value="{{comment}}" disabled="{{true}}" class="page-record-detail-input"></textarea>
+    </block>
+</view>
+<view class="page-record-detail page-record-detail2">
+    <view class="page-record-detail-lf">家长的建议</view>
+    <block wx:if="{{isCustomer}}">
+        <textarea  bindinput="onTextarea2" value="{{reply}}" class="page-record-detail-input"></textarea>
+    </block>
+    <block wx:else>
+        <textarea  bindinput="onTextarea2" value="{{reply}}" class="page-record-detail-input"  disabled="true"></textarea>
+    </block>
+</view>
+<block wx:if="{{isAdmin}}">
+</block>
+<block wx:else>
+    <button class="page-record-detail-container-btn"  bindtap="onCom">提交</button>
+</block>
+

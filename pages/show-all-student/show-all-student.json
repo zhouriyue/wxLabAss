@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "所有学生",
+  "usingComponents": {
+    "show-all-student": "../../components/show-all-student/show-all-student"
+  }
+}

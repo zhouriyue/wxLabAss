@@ -1,0 +1,17 @@
+<wxs src="../../common/tools.wxs" module="tools" />
+
+<view class="app-modal-mask" wx:if="{{value.show}}" style="{{value.show?'opacity:0.5;':'opacity:0;'}}"></view>
+<view class="app-authorize" wx:if="{{value.show}}">
+    <view class="app-authorize-content" style="{{value.show?'opacity:1;':'opacity:0;'}}">
+
+        <view class="app-authorize-title">提示</view>
+        <view class="app-authorize-desc">系统需要获得你的公开信息 (昵称、头像等)</view>
+
+        <view class="app-authorize-btns">
+            <button type="primary" size="mini" plain="true" style="border: none;" open-type="getUserInfo" bindgetuserinfo="onUserInfo" lang="zh_CN">确定</button>
+        </view>
+
+    </view>
+</view>
+
+

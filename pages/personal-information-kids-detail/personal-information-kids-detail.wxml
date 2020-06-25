@@ -1,0 +1,9 @@
+<wxs src="../../common/tools.wxs" module="tools" />
+<import src="../../wxParse/wxParse.wxml"/>
+<view class="page-manage-detail">
+    <view class="page-manage-detail-tit"><text>mystudent</text> <view class="page-manage-detail-tit-line"></view></view>
+    <block wx:if="{{record}}">
+        <teacher-student-detail value="{{record}}"></teacher-student-detail>
+    </block>
+</view>
+

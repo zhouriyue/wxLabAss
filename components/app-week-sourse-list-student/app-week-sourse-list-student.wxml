@@ -1,0 +1,38 @@
+<wxs src="../../common/tools.wxs" module="tools" />
+
+<view class="list" wx:if="{{value!=null}}" style="display: flex;flex-direction: column;align-items: center;">
+
+    <view wx:for="{{value}}" wx:key="scheduleUid" style="margin-bottom: 40rpx;width:95%;">
+        <view class="oneLine">
+            <view style="border-left:1px solid rgb(207, 207, 207);width: 30%;">课程</view>
+            <view style="width: 70%;">{{ tools.getCourseName(courseList,item.courseUid) }}</view>
+        </view>
+        <view class="oneLine">
+            <view style="border-left:1px solid rgb(207, 207, 207);width: 30%;">起始</view>
+            <view style="width: 70%;">{{tools.getOnlyTime(item.fromTimestamp)}}</view>
+        </view>
+        <view class="oneLine">
+            <view style="border-left:1px solid rgb(207, 207, 207);width: 30%;">结束</view>
+            <view style="width: 70%;">{{tools.getOnlyTime(item.toTimestamp)}}</view>
+        </view>
+        <view class="oneLine">
+            <view style="border-left:1px solid rgb(207, 207, 207);width: 30%;">老师</view>
+            <view style="width: 70%;">{{item.name}}</view>
+        </view>
+        <view class="oneLine">
+            <view style="border-left:1px solid rgb(207, 207, 207);width: 30%;">地点</view>
+            <view style="width: 70%;">{{ tools.getClassRoomName(classRoomList,item.classRoomUid) }}</view>
+        </view>
+        <view class="oneLine">
+            <view style="border-left:1px solid rgb(207, 207, 207);width: 30%;">状态</view>
+            <view style="width: 70%;">{{tools.getLookup(dictionaries,item.scheduleStudentObjectList[0].scheduleStudentStatusCode)}}</view>
+        </view>
+        <view class="oneLine">
+            <view style="border-left:1px solid rgb(207, 207, 207);border-bottom:1px solid rgb(207, 207, 207);width: 30%;">教材</view>
+            <view style="width: 70%;border-bottom:1px solid rgb(207, 207, 207);">{{item.teachMaterial==null?'':item.teachMaterial}}</view>
+        </view>
+        <button style="margin-top: 10rpx;" plain="true" bindtap="onSchedule" data-scheduleuid="{{item.scheduleUid}}" data-userstudentuid="{{item.scheduleStudentObjectList[0].userStudentUid}}">申请请假</button>
+    </view>
+
+</view>
+

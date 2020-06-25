@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "所有老师",
+  "usingComponents": {
+    "show-all-teacher": "../../components/show-all-teacher/show-all-teacher"
+  }
+}

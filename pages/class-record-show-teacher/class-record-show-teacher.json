@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "Record",
+  "usingComponents": {
+    "show-course-list-teacher": "../../components/show-course-list-teacher/show-course-list-teacher"
+
+  }
+}

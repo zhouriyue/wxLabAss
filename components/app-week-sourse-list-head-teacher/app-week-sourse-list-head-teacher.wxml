@@ -1,0 +1,65 @@
+<wxs src="../../common/tools.wxs" module="tools" />
+<view class="course">
+    <view class="course-bigTit">
+        <view class="course-bigTit-txt" data-dateoffset="{{offset-1}}" bindtap="onResetDate">last week</view>
+    </view>
+    <view class="course-bigTit nextweek">
+        <view class="course-bigTit-con" data-dateoffset="{{offset+1}}" bindtap="onResetDate">next week</view>
+    </view>
+</view>
+<view class="app-coupon-list">
+    <scroll-view class="app-coupon-list-content">
+        <view class="app-menu-a">
+            <view class="app-menu-a-item{{sortItem==null||sortItem==dates[0]?' app-menu-a-item-on':''}}" data-item="{{dates[0]}}" bindtap="onSort">
+                <view class="app-menu-a-item-bg">
+                    <view>Mon</view>
+                    <view style="font-size:26rpx;" class="data-ziti" wx:if="{{sortItem==null||sortItem==dates[0]}}">{{tools.splitDate(dates[0])}}</view>
+                </view>
+            </view>
+
+            <view class="app-menu-a-item{{sortItem==dates[1]?' app-menu-a-item-on':''}}" data-item="{{dates[1]}}" bindtap="onSort">
+                <view class="app-menu-a-item-bg">
+                    <view>Tus</view>
+                    <view style="font-size:26rpx;" class="data-ziti" wx:if="{{sortItem==dates[1]}}">{{tools.splitDate(dates[1])}}</view>
+                </view>
+            </view>
+
+            <view class="app-menu-a-item{{sortItem==dates[2]?' app-menu-a-item-on':''}}" data-item="{{dates[2]}}" bindtap="onSort">
+                <view class="app-menu-a-item-bg">
+                    <view>Wed</view>
+                    <view style="font-size:26rpx;" class="data-ziti" wx:if="{{sortItem==dates[2]}}">{{tools.splitDate(dates[2])}}</view>
+                </view>
+            </view>
+
+            <view class="app-menu-a-item{{sortItem==dates[3]?' app-menu-a-item-on':''}}" data-item="{{dates[3]}}" bindtap="onSort">
+                <view class="app-menu-a-item-bg">
+                    <view>Thu</view>
+                    <view style="font-size:26rpx;" class="data-ziti" wx:if="{{sortItem==dates[3]}}">{{tools.splitDate(dates[3])}}</view>
+                </view>
+            </view>
+
+            <view class="app-menu-a-item{{sortItem==dates[4]?' app-menu-a-item-on':''}}" data-item="{{dates[4]}}" bindtap="onSort">
+                <view class="app-menu-a-item-bg">
+                    <view>Fri</view>
+                    <view style="font-size:26rpx;" class="data-ziti" wx:if="{{sortItem==dates[4]}}">{{tools.splitDate(dates[4])}}</view>
+                </view>
+            </view>
+
+            <view class="app-menu-a-item{{sortItem==dates[5]?' app-menu-a-item-on':''}}" data-item="{{dates[5]}}" bindtap="onSort">
+                <view class="app-menu-a-item-bg">
+                    <view>Sat</view>
+                    <view style="font-size:26rpx;" class="data-ziti" wx:if="{{sortItem==dates[5]}}">{{tools.splitDate(dates[5])}}</view>
+                </view>
+            </view>
+
+            <view class="app-menu-a-item{{sortItem==dates[6]?' app-menu-a-item-on':''}}" data-item="{{dates[6]}}" bindtap="onSort">
+                <view class="app-menu-a-item-bg">
+                    <view >Sun</view>
+                    <view style="font-size:26rpx;" class="data-ziti" wx:if="{{sortItem==dates[6]}}">{{tools.splitDate(dates[6])}}</view>
+                </view>
+            </view>
+        </view>
+
+    </scroll-view>
+
+</view>

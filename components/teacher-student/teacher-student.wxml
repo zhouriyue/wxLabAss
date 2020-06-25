@@ -1,0 +1,11 @@
+<wxs src="../../common/tools.wxs" module="tools" />
+<view class="list" wx:if="{{value!=null&&value.scheduleStudentObjectList!=null}}">
+        <view class="list-li" wx:for="{{value.scheduleStudentObjectList}}" wx:key="index">
+                <view>{{item.englishName}}</view>
+
+                <block wx:if="{{item.scheduleStudentStatusCode=='PLAN'}}">
+                <button plain="true" bindtap="onPunchCard" data-scheduleuid="{{item.scheduleUid}}" data-code="{{item.scheduleStudentStatusCode}}" data-userstudentuid="{{item.userStudentUid}}">punch card</button>
+                </block>
+                <button plain="true" bindtap="onSchedule" data-scheduleuid="{{item.scheduleUid}}" data-userparentuid="{{item.userParentUid}}" data-userstudentuid="{{item.userStudentUid}}">estimate</button>
+        </view>
+</view>

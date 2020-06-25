@@ -1,0 +1,38 @@
+<wxs src="../../common/tools.wxs" module="tools"/>
+
+<view wx:if="{{value!=null}}"
+      style="height: 120rpx;margin-top: 20rpx;border-top:1px solid rgb(194,194,194);border-bottom:1px solid rgb(194,194,194);background-color: white;display: flex;flex-direction: column;justify-content: center;align-items: center;">
+    <view>my account</view>
+    <view>Total Time:{{ tools.minuteToHour(value[0].totalMinutes) }} hour</view>
+</view>
+
+<view class="list" wx:if="{{value!=null}}" style="display: flex;flex-direction: column;align-items: center;">
+
+    <view wx:for="{{value}}" wx:key="scheduleUid" style="margin-top: 40rpx;margin-bottom: 40rpx;width:95%;">
+        <view class="oneLine">
+            <view style="border-left:1px solid rgb(207, 207, 207);width: 30%;">Course</view>
+            <view style="width: 70%;">{{ item.courseName }}</view>
+        </view>
+        <view class="oneLine">
+            <view style="border-left:1px solid rgb(207, 207, 207);width: 30%;">Course Type</view>
+            <view style="width: 70%;">{{ item.courseTypeName }}</view>
+        </view>
+        <view class="oneLine">
+            <view style="border-left:1px solid rgb(207, 207, 207);width: 30%;">Start Time</view>
+            <view style="width: 70%;">{{tools.getDateTime(item.fromTimestamp)}}</view>
+        </view>
+        <view class="oneLine">
+            <view style="border-left:1px solid rgb(207, 207, 207);width: 30%;">End Time</view>
+            <view style="width: 70%;">{{tools.getDateTime(item.toTimestamp)}}</view>
+        </view>
+        <view class="oneLine">
+            <view style="border-left:1px solid rgb(207, 207, 207);width: 30%;">Add Time</view>
+            <view style="width: 70%;">{{tools.minuteToHour(item.minutes)}} hour</view>
+        </view>
+        <button style="background-color: rgb(141,197,62);margin-top: 10rpx;" type="primary"
+                bindtap="onSchedule"
+                data-scheduleuid="{{item.scheduleUid}}">detail
+        </button>
+    </view>
+
+</view>

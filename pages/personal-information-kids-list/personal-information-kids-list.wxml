@@ -1,0 +1,19 @@
+<wxs src="../../common/tools.wxs" module="tools" />
+<import src="../../wxParse/wxParse.wxml"/>
+
+<view class="page-appointment">
+    <view class="weui-cells weui-cells_after-title infoArea" wx:if="{{userStudent!=null || userStudent.length>0}}" wx:for="{{userStudent}}">
+        <view class="weui-cell__hd">
+            中文姓名：{{item.name}}
+        </view>
+        <view class="weui-cell__hd">
+            学校：{{item.schoolName}}
+        </view>
+        <view class="weui-cell__hd">
+            年级：{{item.grade}}
+        </view>
+        <button size="mini" bindtap="onShowStudent" data-userstudentuid="{{item.userStudentUid}}" type="primary" >查看</button>
+    </view>
+</view>
+
+<button size="xinzeng" bindtap="onAddStudent" type="primary" >新增</button>

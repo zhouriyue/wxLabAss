@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "请假审批",
+  "usingComponents": {
+    "leave-list": "../../components/leave-list/leave-list"
+
+  }
+}

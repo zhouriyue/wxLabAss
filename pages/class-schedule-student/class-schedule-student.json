@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "学生课表",
+  "usingComponents": {
+    "app-week-sourse-list-head-student": "../../components/app-week-sourse-list-head-student/app-week-sourse-list-head-student",
+
+    "app-week-sourse-list-student": "../../components/app-week-sourse-list-student/app-week-sourse-list-student"
+  }
+}

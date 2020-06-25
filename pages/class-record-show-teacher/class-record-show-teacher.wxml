@@ -1,0 +1,5 @@
+<wxs src="../../common/tools.wxs" module="tools" />
+
+<block wx:if="{{record!=null}}">
+    <show-course-list-teacher value="{{record}}"></show-course-list-teacher>
+</block>

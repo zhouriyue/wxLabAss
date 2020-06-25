@@ -1,0 +1,49 @@
+<wxs src="../../common/tools.wxs" module="tools" />
+
+<view class="page-appointment">
+
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">姓名</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" value="{{user.name}}" bindinput="onNameInput"/>
+            </view>
+
+        </view>
+    </view>
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">手机</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" value="{{user.phone}}" bindinput="onPhoneInput"/>
+            </view>      </view>
+    </view>
+
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">邮箱</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" value="{{user.email}}" bindinput="onEmailInput"/>
+            </view>
+        </view>
+    </view>
+
+    <view class="weui-cells weui-cells_after-title" style="border-bottom:1px solid rgb(217,217,217);">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">家庭住址</view>
+            </view>
+            <view class="weui-cell__bd" style="margin:10px 0;min-height:24px;">
+                <input class="weui-input" value="{{user.addressDetail}}" bindinput="onAddressInput"/></view>
+        </view>
+    </view>
+
+    <button style="background-color: rgb(141, 197, 62);" class="page-appointment-btn" bindtap="onSubmit" type="primary">提交</button>
+
+</view>

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "manage detail",
+  "usingComponents": {
+    "teacher-student": "../../components/teacher-student/teacher-student"
+  }
+}

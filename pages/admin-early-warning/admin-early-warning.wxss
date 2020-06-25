@@ -1,0 +1,1 @@
+.admin-early-warning{background:#fff;margin-top:10px;padding:10px 0}.table{border-top:1px solid #cfcfcf;border-left:1px solid #cfcfcf;margin:0 10px}.row{display:-webkit-box;display:-webkit-flex;display:flex}.row view{width:33.3%;border-right:1px solid #cfcfcf;border-bottom:1px solid #cfcfcf;text-align:center;overflow:hidden;height:30px;line-height:30px}

@@ -1,0 +1,113 @@
+<wxs src="../../common/tools.wxs" module="tools" />
+
+<view class="page-appointment">
+
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">中文姓名</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" value="{{name}}" bindinput="onChineseNameInput"/>
+            </view>
+        </view>
+    </view>
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">英文名称</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" value="{{englishName}}" bindinput="onEnglishNameInput"/>
+            </view>
+        </view>
+    </view>
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">性别</view>
+            </view>
+            <view class="weui-cell__bd">
+                <picker class="weui-input" bindchange="bindPickerChangeGender" value="{{genderindex}}" range="{{genderList}}">
+                    <view class="picker">
+                        {{genderList[genderindex]}}
+                    </view>
+                </picker>
+            </view>
+        </view>
+    </view>
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">出生日期</view>
+            </view>
+            <view class="weui-cell__bd">
+                <picker mode="date" value="{{date}}" start="1978-01-01" end="2099-1-23" bindchange="onDateChange">
+                    <view class="weui-input">{{birthDay}}</view>
+                </picker>
+            </view>
+        </view>
+    </view>
+
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">年龄</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" value="{{age}}" bindinput="onAgeInput"/>
+            </view>
+        </view>
+    </view>
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">学生学校</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" bindinput="onSchollInput"/>
+            </view>
+        </view>
+    </view>
+
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">上课地址</view>
+            </view>
+            <view class="weui-cell__bd">
+                <picker class="weui-input" style="padding:15rpx 0;height:auto;line-height:40rpx;" bindchange="bindPickerChange" value="{{index}}" range="{{classAddress}}">
+                    <view class="picker">
+                        <block wx:if="{{classAddress==null||classAddress.length<=0}}">未选择</block>
+                        <block wx:else>{{classAddress[index]}}</block>
+                    </view>
+                </picker>
+            </view>
+        </view>
+    </view>
+
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">年级</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" value="{{grade}}" bindinput="onGradeInput"/>
+            </view>
+        </view>
+    </view>
+
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">其他</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" value="{{description}}" bindinput="onDescriptionInput"/>
+            </view>
+        </view>
+    </view>
+    <button  disabled="{{disabled || name==null || englishName==null || birthDay==null}}"
+             class="page-appointment-btn" bindtap="onSubmit" type="primary">提交</button>
+
+</view>

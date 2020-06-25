@@ -1,0 +1,19 @@
+<wxs src="../../common/tools.wxs" module="tools" />
+
+
+<view class="page-confirm-order">
+    <view class="page-confirm-order-contact">
+
+        <view class="page-confirm-order-contact-name">
+            <view class="page-confirm-order-contact-label">原因:</view>
+            <input value="{{buyerComment}}" bindinput="onCommentInput"/>
+        </view>
+
+    </view>
+
+</view>
+
+<view class="page-confirm-order-bottom">
+    <view class="page-confirm-order-bottom-order" bindtap="onSubmit">提交申请</view>
+
+</view>

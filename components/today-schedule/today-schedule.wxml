@@ -1,0 +1,67 @@
+<wxs src="../../common/tools.wxs" module="tools"/>
+
+<view>
+
+    <view wx:for="{{parentScheduleList}}" wx:key="userStudent.userStudentUid" style="background:#fff;padding-bottom:10px;">
+        <view class="today-schedule-title">{{item.userStudent.name}}的课程</view>
+        <view class="today-schedule-table">
+            <view class="today-schedule-row">
+                <view>起始</view>
+                <view>结束</view>
+                <view>课程</view>
+                <view>老师</view>
+            </view>
+            <view wx:for="{{item.scheduleList}}" wx:key="scheduleUid" class="today-schedule-row">
+                <view>{{ tools.getOnlyTime(item.fromTimestamp) }}</view>
+                <view>{{ tools.getOnlyTime(item.toTimestamp) }}</view>
+                <view>{{ tools.getCourseName(courseList,item.courseUid)  }}</view>
+                <view>{{ item.name }}</view>
+            </view>
+        </view>
+    </view>
+
+
+    <view style="background:#fff;padding-bottom:10px;" wx:if="{{teacherScheduleList!=null && teacherScheduleList.length>0}}">
+
+        <view class="today-schedule-title">Today's course</view>
+
+        <view class="today-schedule-table">
+            <view class="today-schedule-row">
+                <view>start time</view>
+                <view>end time</view>
+                <view>course</view>
+                <view>teacher</view>
+            </view>
+            <view wx:for="{{teacherScheduleList}}" wx:key="scheduleUid" class="today-schedule-row">
+                <view>{{ tools.getOnlyTime(item.fromTimestamp) }}</view>
+                <view>{{ tools.getOnlyTime(item.toTimestamp) }}</view>
+                <view>{{ tools.getCourseName(courseList,item.courseUid)  }}</view>
+                <view>{{ item.name }}</view>
+            </view>
+        </view>
+
+    </view>
+
+    <view style="background:#fff;padding-bottom:10px;" wx:if="{{adminScheduleList!=null && adminScheduleList.length>0}}">
+
+        <view class="today-schedule-title">今日所有课程</view>
+
+        <view class="today-schedule-table">
+            <view class="today-schedule-row">
+                <view>起始</view>
+                <view>结束</view>
+                <view>课程</view>
+                <view>老师</view>
+            </view>
+            <view wx:for="{{adminScheduleList}}" wx:key="scheduleUid" class="today-schedule-row">
+                <view>{{ tools.getOnlyTime(item.fromTimestamp) }}</view>
+                <view>{{ tools.getOnlyTime(item.toTimestamp) }}</view>
+                <view>{{ tools.getCourseName(courseList,item.courseUid)  }}</view>
+                <view>{{ item.name }}</view>
+            </view>
+        </view>
+
+    </view>
+
+
+</view>

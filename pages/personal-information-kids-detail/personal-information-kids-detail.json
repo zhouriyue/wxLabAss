@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "teacher-student-detail": "../../components/teacher-student-detail/teacher-student-detail"
+  }
+}

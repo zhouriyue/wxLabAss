@@ -1,0 +1,74 @@
+<wxs src="../../common/tools.wxs" module="tools" />
+
+<view class="page-my">
+    <view class="page-my-head">
+        <image src="{{tools.IMG_URL + 'assets/img/bg.jpg'}}" mode="widthFix" class="page-my-head-bg"></image>
+        <view class="page-my-head-img-outer" bindtap="onUserInfo">
+            <image wx:if="{{sysUser!=''}}" src="{{sysUser.perPic}}"  class="page-my-head-img"></image>
+            <image wx:else src="../../image/aru.png"  class="page-my-head-img"></image>
+        </view>onSysUser
+        <view wx:if="{{sysUser!='' && sysUser.userId!=null}}">
+        <view class="page-my-head-name" >{{sysUser.userId}}</view>
+        </view>
+        <view class="page-my-head-name" wx:if="{{sysUser==''}}" bindtap="onSysUser">请登录</view>
+    </view>
+
+    <view class="page-my-member">
+        <view class="page-my-member-head">个人菜单</view>
+            <view class="page-my-member-items">
+            <view wx:for="{{roleMenu}}" class="page-my-member-item">
+            <view data-menumethod="{{item.menu.menuName}}" bindtap="onMenuMethod">
+                <view class="page-my-member-item-container">
+                    <image src="{{img[index].url}}"  class="page-my-member-item-img"></image>
+                </view>
+                <view>{{item.menu.menuName}}</view>
+            </view>
+            </view>
+        </view>
+    </view>
+
+
+    <view class="page-my-member" wx:if="{{true}}">
+        <view class="page-my-member-head">管理中心</view>
+        <view class="page-my-member-items">
+            <view class="page-my-member-item" bindtap="onScheduleAdmin">
+                <view class="page-my-member-item-container">
+                    <image src="../../image/schedule.png"  class="page-my-member-item-img"></image>
+                </view>
+                <view>课表详情</view>
+            </view>
+            <view class="page-my-member-item" bindtap="onManageLeave" data-code="LEAVE_APPLY">
+                <view class="page-my-member-item-container">
+                    <image src="../../image/qjia.png"  class="page-my-member-item-img"></image>
+                </view>
+                <view>请假审批</view>
+            </view>
+            <view class="page-my-member-item" bindtap="onShowAllTeacher" >
+                <view class="page-my-member-item-container">
+                    <image src="../../image/laoshi.png"  class="page-my-member-item-img"></image>
+                </view>
+                <view>所有老师</view>
+            </view>
+           <view class="page-my-member-item" bindtap="onShowAllStudent" >
+            <view class="page-my-member-item-container">
+                <image src="../../image/xuesheng.png"  class="page-my-member-item-img"></image>
+                </view>
+                <view>所有学生</view>
+             </view>
+            <view class="page-my-member-item" bindtap="onClassWarning" >
+                <view class="page-my-member-item-container">
+                    <image src="../../image/keshi.png"  class="page-my-member-item-img"></image>
+                </view>
+                <view>课时预警</view>
+            </view>
+            <view class="page-my-member-item" bindtap="onAdminScan">
+                <view class="page-my-member-item-container">
+                    <image src="../../image/scan.png"  class="page-my-member-item-img"></image>
+                </view>
+                <view>扫一扫</view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<app-authorize value="{{ {show: showAuthorize} }}" bindauthorizeevent="onAuthorizeEvent"></app-authorize>

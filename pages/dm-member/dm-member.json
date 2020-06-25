@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "会员管理",
+  "usingComponents": {
+    "app-tab": "../../components/app-tab/app-tab"
+  }
+}

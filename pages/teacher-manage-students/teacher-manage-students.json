@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "manage",
+  "usingComponents": {
+    "record-teacher-list": "../../components/record-teacher-list/record-teacher-list"
+  }
+}

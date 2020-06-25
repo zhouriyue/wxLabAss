@@ -1,0 +1,7 @@
+<wxs src="../../common/tools.wxs" module="tools" />
+
+<import src="../../wxParse/wxParse.wxml"/>
+<app-week-sourse-list-head-student bindcustomevent="onGetCode"></app-week-sourse-list-head-student>
+<block wx:if="{{StudentSchedule!=null}}">
+    <app-week-sourse-list-student value="{{StudentSchedule}}"></app-week-sourse-list-student>
+</block>

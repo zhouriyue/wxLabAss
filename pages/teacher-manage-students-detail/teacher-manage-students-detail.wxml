@@ -1,0 +1,8 @@
+<view class="page-manage-detail">
+    <view class="page-manage-detail-tit"><text>mystudent</text> <view class="page-manage-detail-tit-line"></view></view>
+    <block wx:if="{{record!=null}}">
+        <teacher-student value="{{record}}"></teacher-student>
+    </block>
+</view>
+
+<navigator url="../teacher-manage-students-homework/teacher-manage-students-homework" class="page-manage-detail-btn">+ homework<text class="arrow"></text></navigator>

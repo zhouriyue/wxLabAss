@@ -1,0 +1,18 @@
+<view class="page-manage-estimate-tit">class performance</view>
+<view class="page-manage-estimate page-manage-estimate1" wx:for="{{starsInfo}}">
+    <view class="page-manage-estimate-lf">{{item.name}}</view>
+    <view class="page-manage-estimate-star">
+        <block wx:for="{{stars}}" wx:for-item="starItem" wx:for-index="starIndex">
+            <image class="star-image" style="left:{{starItem*100}}rpx" src="{{item.key>starItem?selectedSrc:normalSrc}}" data-index="{{index}}" data-key="{{starItem+1}}" bindtap="selectStar"></image>
+        </block>
+    </view>
+</view>
+<view class="page-manage-estimate">
+    <view class="page-manage-estimate-lf">estimate</view>
+
+    <view class="page-manage-estimate-txt">
+        <textarea  bindinput="onTextarea"></textarea>
+    </view>
+</view>
+
+<button class="page-manage-estimate-btn" bindtap="onStatic" >提交</button>

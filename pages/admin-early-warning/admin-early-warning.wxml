@@ -1,0 +1,26 @@
+<wxs src="../../common/tools.wxs" module="tools" />
+
+<view class="admin-early-warning">
+    <view class="table">
+
+        <view class="row">
+            <view>姓名</view>
+            <view>课程</view>
+            <view>剩余课时</view>
+        </view>
+
+        <block wx:for="{{userStudentObjectList}}" wx:for-item="userStudentObject" wx:key="userStudentUid">
+
+            <block wx:for="{{userStudentObject.userStudentCourseTypeObjectList}}"  wx:key="courseTypeUid">
+                <view wx:if="{{item.availableMinutes < 480}}" class="row">
+                    <view>{{ userStudentObject.name }}</view>
+                    <view>{{ tools.getCourseTypeName(courseTypeList,item.courseTypeUid)  }}</view>
+                    <view>{{ tools.minuteToHour(item.availableMinutes) }}</view>
+                </view>
+            </block>
+
+        </block>
+
+    </view>
+
+</view>

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "app-swiper": "../../components/app-swiper/app-swiper",
+    "app-news": "../../components/app-news/app-news",
+    "today-schedule": "../../components/today-schedule/today-schedule"
+  }
+}

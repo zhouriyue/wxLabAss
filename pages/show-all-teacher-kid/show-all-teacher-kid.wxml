@@ -1,0 +1,199 @@
+<wxs src="../../common/tools.wxs" module="tools"/>
+
+<import src="../../wxParse/wxParse.wxml"/>
+
+
+<view class="page-appointment" wx:if="{{userTeacher!=null}}">
+
+    <!--Name-->
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">
+                    <text>Name</text>
+                </view>
+            </view>
+            <view class="weui-cell__bd" style="padding-left: 40rpx;">
+                <input class="weui-input" value="{{userTeacher.name}}"
+                       disabled="{{true}}"/>
+            </view>
+        </view>
+    </view>
+
+    <!--Gender-->
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">
+                    <text>Gender</text>
+                </view>
+            </view>
+            <view class="weui-cell__bd" style="padding-left: 40rpx;">
+                <input class="weui-input" value="{{userTeacher.gender=='1'?'男':'女'}}" disabled="{{true}}"/>
+            </view>
+        </view>
+    </view>
+
+    <!--Native place-->
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">
+                    <text>Native place</text>
+                </view>
+            </view>
+            <view class="weui-cell__bd" style="padding-left: 40rpx;">
+                <input class="weui-input" value="{{userTeacher.userTeacherObject.nativePlace}}" disabled="{{true}}"/>
+            </view>
+        </view>
+    </view>
+
+    <!--Current residence-->
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">
+                    <view>
+                        <text>Current</text>
+                    </view>
+                    <view>
+                        <text>residence</text>
+                    </view>
+                </view>
+            </view>
+            <view class="weui-cell__bd" style="padding-left: 40rpx;">
+                <input class="weui-input" value="{{userTeacher.addressDetail}}" disabled="{{true}}"/>
+            </view>
+        </view>
+    </view>
+
+    <!--Visa time-->
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">
+                    <text>Visa time</text>
+                </view>
+            </view>
+            <view class="weui-cell__bd" style="padding-left: 40rpx;">
+                <picker mode="date" value="{{userTeacher.userTeacherObject.visaTimestamp}}" start="1978-01-01"
+                        end="2099-1-23" disabled="{{true}}">
+                    <view class="weui-input">{{tools.getOnlyDate(userTeacher.userTeacherObject.visaTimestamp)}}</view>
+                </picker>
+            </view>
+        </view>
+    </view>
+
+    <!--Call phone-->
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">
+                    <text>Call phone</text>
+                </view>
+            </view>
+            <view class="weui-cell__bd" style="padding-left: 40rpx;">
+                <input class="weui-input" value="{{userTeacher.phone}}" disabled="{{true}}"/>
+            </view>
+        </view>
+    </view>
+
+    <!--E-mail-->
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">
+                    <text>E-mail</text>
+                </view>
+            </view>
+            <view class="weui-cell__bd" style="padding-left: 40rpx;">
+                <input class="weui-input" value="{{userTeacher.email}}" disabled="{{true}}"/>
+            </view>
+        </view>
+    </view>
+
+    <!--Education background-->
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">
+                    <view>
+                        <text>Education</text>
+                    </view>
+                    <view>
+                        <text>background</text>
+                    </view>
+                </view>
+            </view>
+            <view class="weui-cell__bd" style="padding-left: 40rpx;">
+                <input class="weui-input" value="{{tools.getLookup(dictionaries,userObject.userTeacherObject.degreeCode)}}"
+                       disabled="{{true}}"/>
+            </view>
+        </view>
+    </view>
+
+    <!--Working experience-->
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">
+                    <view>
+                        <text>Graduate</text>
+                    </view>
+                    <view>
+                        <text>school name</text>
+                    </view>
+                </view>
+            </view>
+            <view class="weui-cell__bd" style="padding-left: 40rpx;">
+                <input class="weui-input" value="{{userTeacher.userTeacherObject.graduateSchoolName}}" disabled="{{true}}"/>
+            </view>
+        </view>
+    </view>
+
+    <!--Courses taught-->
+    <view class="weui-cells weui-cells_after-title" style="border-bottom: 1px solid rgb(217,217,217);">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">
+                    <view>
+                        <text>Working</text>
+                    </view>
+                    <view>
+                        <text>experience</text>
+                    </view>
+                </view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" value="{{userTeacher.userTeacherObject.workExperience}}"
+                       disabled="{{true}}"/>
+            </view>
+        </view>
+    </view>
+
+    <!--底部区域-->
+    <view class="bottom-area">
+
+        <view class="bottom-area-line">
+            <view>
+                <text>{{ userTeacher && userTeacher.gender=='1'?'他':'她' }}的课表</text>
+            </view>
+            <view>
+                <button bindtap="onShowTeacherSchedule" class="bottom-area-line-button" size="mini" type="default">查看</button>
+            </view>
+        </view>
+
+        <view class="bottom-area-line">
+            <view>
+                <text>{{ userTeacher && userTeacher.gender=='1'?'他':'她' }}的上课记录</text>
+            </view>
+            <view>
+                <button bindtap="lookClassRecord" class="bottom-area-line-button" size="mini" type="default">查看</button>
+            </view>
+        </view>
+
+    </view>
+
+    <!--<button class="page-appointment-btn" bindtap="onSubmit" type="primary">修改</button>-->
+
+</view>

@@ -1,0 +1,22 @@
+<wxs src="../../common/tools.wxs" module="tools" />
+
+<import src="../../wxParse/wxParse.wxml"/>
+
+<view wx:if="{{cmsObject!=null}}" style="background:#fff;">
+
+    <view class="page-cms-title">{{cmsObject.title}}</view>
+
+    <view class="page-cms-info" wx:if="{{showMore}}">
+        <text class="page-cms-time">{{tools.getOnlyDate(cmsObject.createTimestamp)}}</text>
+        <text class="page-cms-author" wx:if="{{cmsObject.author!=null}}">{{cmsObject.author}}</text>
+
+        <text class="page-cms-link" bindtap="onAll">查看更多</text>
+    </view>
+
+    <view class="wxParse page-cms">
+        <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+    </view>
+
+</view>
+
+<app-home-icon wx:if="{{sharerUid!=null}}"></app-home-icon>

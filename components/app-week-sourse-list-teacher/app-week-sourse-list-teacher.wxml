@@ -1,0 +1,42 @@
+<wxs src="../../common/tools.wxs" module="tools" />
+
+<view class="list" wx:if="{{value}}" style="display: flex;flex-direction: column;align-items: center;">
+
+    <view wx:for="{{value}}" wx:key="scheduleUid" style="margin-bottom: 40rpx;width:95%;">
+        <view class="courseNameLine">
+            <view style="border-left:1px solid rgb(207, 207, 207);width: 30%;">course</view>
+            <view style="width: 70%;">{{ tools.getCourseName(courseList,item.courseUid) }}</view>
+        </view>
+        <view class="fromTimeStampLine">
+            <view style="border-left:1px solid rgb(207, 207, 207);width: 30%;">start time</view>
+            <view style="width: 70%;">{{tools.getOnlyTime(item.fromTimestamp)}}</view>
+        </view>
+        <view class="toTimeStampLine">
+            <view style="border-left:1px solid rgb(207, 207, 207);width: 30%;">end time</view>
+            <view style="width: 70%;">{{tools.getOnlyTime(item.toTimestamp)}}</view>
+        </view>
+        <view class="nameLine">
+            <view style="border-left:1px solid rgb(207, 207, 207);width: 30%;">teacher</view>
+            <view style="width: 70%;">{{item.name}}</view>
+        </view>
+        <view class="classRoomLine">
+            <view style="border-left:1px solid rgb(207, 207, 207);width: 30%;">address</view>
+            <view style="width: 70%;">{{ tools.getClassRoomName(classRoomList,item.classRoomUid) }}</view>
+        </view>
+        <view class="teachMaterialLine">
+            <view style="border-left:1px solid rgb(207, 207, 207);width: 30%;">Material</view>
+            <view style="width: 70%;">{{ item.teachMaterial==null?'':item.teachMaterial }}</view>
+        </view>
+        <view class="students">
+            <view style="border-left:1px solid rgb(207, 207, 207);width: 30%;">Students</view>
+            <view style="width: 70%;">
+                <block wx:if="{{item.scheduleStudentObjectList!=null}}">
+                    <block wx:for="{{item.scheduleStudentObjectList}}" wx:key="userStudentUid">
+                        <text style="margin-right:10px;" wx:if="{{index<5}}">{{item.englishName}}</text>
+                    </block>
+                </block>
+            </view>
+        </view>
+    </view>
+
+</view>
